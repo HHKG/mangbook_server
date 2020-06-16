@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todoApp</title>
+    <link rel="stylesheet" href="/assets/style.css" type="text/css">
+<!--    引入jq-->
+   <script type="text/javascript" src="/assets/jquery3-4-1.js"></script>
+</head>
+<body>
+<!--头部-->
+<header>
+    <form>
+        <input type="text" placeholder="Enter an activity.." name="item" id="addContent">
+        <button type="submit" id="addBtn">添加</button>
+    </form>
+</header>
+<!--内容区-->
+<div class="container">
+<!--未完成列表-->
+    <ul class="todo" id="todo">
+<!--动态添加数据-->
+        <% todos.forEach((todo)=>{%>
+            <li>
+               <span id="txt"><%=todo.item%></span>
+                <div class="buttons">
+                    <button class="remove">删除</button>
+                    <button class="completed">完成</button>
+                </div>
+            </li>
+        <%})%>
+    </ul>
+
+<!--已完成列表-->
+    <ul class="todo" id="completed">
+<!--动态获取数据-->
+        <li>
+            希望通过这个项目可以进一步掌握node.js
+            <div class="buttons">
+                <button class="remove">删除</button>
+                <button class="completed">完成</button>
+            </div>
+        </li>
+        <li>
+            希望通过这个项目可以进一步掌握node.js
+            <div class="buttons">
+                <button class="remove">删除</button>
+                <button class="completed">完成</button>
+            </div>
+        </li>
+        <li>
+            希望通过这个项目可以进一步掌握node.js
+            <div class="buttons">
+                <button class="remove">删除</button>
+                <button class="completed">完成</button>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+<!--    等网页结构加载完毕再执行里面的代码-->
+    $(document).ready(function(){
+        //给元素header注册了submit事件，因为form表单里面有button的type是submit，所以当，点击按钮的时候就会执行这个submit事件
+        $('header').on('submit',function(){
+        //    获取input中的值
+            var item=$('#addContent');
+            var todo={item:item.val()};
+        //    判断内容是否为空，
+            if(todo.item==''){
+                alert('内容不能为空，请重新输入！');
+                return;
+            }
+            console.log(todo);
+        //    发送数据
+            $.ajax({
+                type:'POST',
+                url:'/todo',
+                data:todo,
+                success:function(data){
+
+                }
+            })
+        });
+    //    删除数据
+        $('.remove').on('click',function(){
+            var item=$(this).parent().parent().text();
+            var itemArr=item.split('！');
+            item=$.trim(itemArr[0]+'！');
+
+            //将数据传到服务器中
+            $.ajax({
+                type:'DELETE',
+                url: '/todo/'+item,
+                success:function(data){
+                    location.reload();
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

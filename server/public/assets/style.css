@@ -1,0 +1,141 @@
+body{
+    background:#edf0f1;
+    padding: 80px 0;
+}
+header{
+    width: 96%;
+    height: 80px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index:5;
+    background: #25b99a;
+    box-shadow: 0px 2px 4px rgba(44,62,80,0.15);
+    -webkit-box-shadow: 0px 2px 4px rgba(44,62,80,0.15);
+    -moz-box-shadow: 0px 2px 4px rgba(44,62,80,0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+/*input输入框样式*/
+header input{
+    width: 100%;
+    height: 50px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    background:rgba(255,255,255,0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border:0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+}
+/*placeholder*/
+header input::-webkit-input-placeholder{
+    color: rgba(255,255,255,0.75);
+}
+/*button*/
+header button{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border:hidden;
+    z-index: 2;
+    background: #fff;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    color: #25b99a;
+}
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/*====================================================*/
+.container{
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+}
+ul .todo{
+    width: 100%;
+}
+ul.todo li{
+    width: 82%;
+    min-height: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff!important;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44,62,80,0.10);
+    margin:0 10px 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+ul.todo li:last-of-type{
+    margin: 0;
+}
+/*buttons*/
+ul.todo li .buttons{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+ul.todo li .buttons button{
+    width:50px;
+    height: 50px;
+    float: left;
+    background: none;
+    border: 0px;
+    position: relative;
+    box-shadow: none;
+    outline: none;
+    cursor:pointer;
+    appearance: none;
+}
+ul.todo li .buttons .remove,.completed{
+    color:#c0cecb;
+}
+ul.todo li .buttons .remove:hover{
+    color: red;
+    translation: fill 2s ease;
+}
+ul.todo#completed li .buttons .completed{
+    color:#25b99a;
+}
+ul.todo#todo li .buttons .completed:hover{
+    color: #25b99a;
+    translation: fill 2s ease;
+}
+/*设置完成列表样式*/
+ul.todo#completed{
+    position: relative;
+    padding: 60px 0 0 0;
+}
+/*如果completed容器中包含内容，那么在元素前添加一条线*/
+ul.todo#completed:not(empty):before{
+    content: '';
+    width: 150px;
+    height: 1px;
+    background: #d8e5e0;
+    position: absolute;
+    top: 30px;
+    left:50%;
+    margin: 0 0 0 -75px;
+
+}

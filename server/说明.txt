@@ -1,0 +1,1 @@
+本项目所需安装的依赖是：1：express 2:ejs(前后端分离的话，不需要) 3:body-parser 4:mongoose 5:cors（解决跨域）
