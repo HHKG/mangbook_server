@@ -5,6 +5,7 @@ var express=require('express');
 //引入逻辑处理模块todoConstroller
 var todoConstroller=require('./constroller/todoConstroller');
 var userListConstroller=require('./constroller/userListConstroller');
+var registerConstrooer=require('./constroller/loginConstroller');
 
 var app=new express();//实例化express对象
 
@@ -26,5 +27,8 @@ app.use(express.static('public'));//public文件夹是存放一些公共样式�
 todoConstroller(app);
 
 userListConstroller(app);
+
+registerConstrooer(app);
+
 
 app.listen(3000);

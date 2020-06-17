@@ -16,6 +16,7 @@ var UserList=mongoose.model("UserList",addUserSchema);
 
 module.exports=function(app){
 	
+	// 解析调用express的post时传过来的数据
 	app.use(urlencodedParser);
 	app.use(bodyParser.json()); 
 	

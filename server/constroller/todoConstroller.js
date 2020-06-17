@@ -1,5 +1,6 @@
 //逻辑处理文件todoConstroller
-var bodyParser=require('body-parser');
+
+var bodyParser=require('body-parser');//用于对数据进行解析
 
 //引入mongoose模块；
 var mongoose=require('mongoose');
