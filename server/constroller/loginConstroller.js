@@ -27,8 +27,8 @@ module.exports=function (app){
 		if(!req.body) return;
 	   registerUser(req.body).save(function(err,data){
 			if(err) throw err;
-			res.write('success')
-		    res.json(data.body);
+			let successData={data:{code:'0000'}}
+		    res.json(successData);
 		})
 	})
 	
